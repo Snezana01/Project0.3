@@ -1,14 +1,12 @@
-#include "include_using.h"
-#include "struktura.h"
-#include "eilute.h"
-#include "palyginimas.h"
+#include "creating.h"
+
 int main()
 {
   FILE *read;
   if( (read=fopen("kursiokai.txt","r"))!=NULL)
   {std :: ifstream read("kursiokai.txt");
   int eilutes;
-  eilutes = eilute()-1;
+  eilutes = eilute("kursiokai.txt")-1;
     srand(time(NULL));
     vector<duomuo> Eil_vect;
     string vardas, pavarde;
