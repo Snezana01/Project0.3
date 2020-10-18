@@ -1,7 +1,9 @@
 #ifndef STRUKTURA_H_INCLUDED
 #define STRUKTURA_H_INCLUDED
 
-#include "include_using.h"
+using std::string;
+using std::vector;
+
 struct duomuo {
     string Vard;
     string Pav;
