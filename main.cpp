@@ -2,11 +2,24 @@
 
 int main()
 {
-  FILE *read;
-  if( (read=fopen("kursiokai.txt","r"))!=NULL)
-  {std :: ifstream read("kursiokai.txt");
+  string name;
+  name = "kursiokai.txt";
+  std::ifstream read;
+  read.open(name);
+  do{
+    try{
+    if (!read.is_open()){
+        throw std::runtime_error("Tokio failo nera projekto deriktorijoje \n");
+    }
+    }
+     catch (const std::runtime_error& e) {
+      std::cout << e.what();
+      cout<<"Iveskite reikiamo failo pavadinima: ";
+      cin>>name;
+      read.open(name);}
+  }while (!read.is_open()== true);
   int eilutes;
-  eilutes = eilute("kursiokai.txt")-1;
+  eilutes = eilute(name)-1;
     srand(time(NULL));
     vector<duomuo> Eil_vect;
     string vardas, pavarde;
@@ -67,7 +80,5 @@ int main()
       cout<< std::left<< std::setw(15)<< std::setprecision(3)<<Eil_vect[i].GP << std::setprecision(3) << Eil_vect[i].medianai <<std::endl;
     }
     read.close();
-  }
-  else {printf("Negalima atidaryti failo"); exit(0);}
   system("pause");
 }
